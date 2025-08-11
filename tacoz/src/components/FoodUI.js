@@ -8,6 +8,7 @@ import img6 from '../assets/img6.png';
 import img7 from '../assets/img7.png';
 import img8 from '../assets/tomato.png';
 import img9 from '../assets/leaf.png';
+import './FoodUI.css';
 // Floating animation for food images
 const float = keyframes`
   0%, 100% { transform: translateY(0) }

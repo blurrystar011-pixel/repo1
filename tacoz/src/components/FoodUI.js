@@ -237,7 +237,7 @@ export default function FoodUI() {
       <StatsBar>
         <StatItem>
           <TextGroup>
-            <span className="number">3,00,000+</span> restaurants
+            <span className="number">3+</span> restaurants
           </TextGroup>
           <IconWrapper>
             <RestaurantIcon />
@@ -245,7 +245,7 @@ export default function FoodUI() {
         </StatItem>
         <StatItem>
           <TextGroup>
-            <span className="number">800+</span> cities
+            <span className="number">10+</span> cities
           </TextGroup>
           <IconWrapper>
             <LocationIcon />
@@ -253,7 +253,7 @@ export default function FoodUI() {
         </StatItem>
         <StatItem>
           <TextGroup>
-            <span className="number">3 billion+</span> orders delivered
+            <span className="number">1k+</span> orders delivered
           </TextGroup>
           <IconWrapper>
             <OrdersIcon />

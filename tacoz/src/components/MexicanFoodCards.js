@@ -14,7 +14,7 @@ const MexicanFoodCards = () => {
     {
       id: 1,
       name: "Authentic Chicken Tacos",
-      price: "$12.99",
+      price: "€12.99",
       rating: 4.8,
       description: "Tender grilled chicken with fresh cilantro, onions, and lime on corn tortillas",
       image: "https://www.mexicanplease.com/wp-content/uploads/2018/01/best-chicken-tacos-closeup.jpg",
@@ -26,7 +26,7 @@ const MexicanFoodCards = () => {
     {
       id: 2,
       name: "Beef Burrito Bowl",
-      price: "$14.50",
+      price: "€14.50",
       rating: 4.6,
       description: "Seasoned beef with black beans, rice, cheese, and fresh guacamole",
       image: "https://images.unsplash.com/photo-1544025162-d76694265947?w=400&h=300&fit=crop",
@@ -38,7 +38,7 @@ const MexicanFoodCards = () => {
     {
       id: 3,
       name: "Spicy Jalapeño Quesadilla",
-      price: "$10.99",
+      price: "€10.99",
       rating: 4.7,
       description: "Crispy tortilla filled with melted cheese, jalapeños, and seasoned chicken",
       image: "https://images.unsplash.com/photo-1618040996337-56904b7850b9?w=400&h=300&fit=crop",
@@ -50,7 +50,7 @@ const MexicanFoodCards = () => {
     {
       id: 4,
       name: "Veggie Enchiladas",
-      price: "$13.25",
+      price: "€13.25",
       rating: 4.5,
       description: "Roasted vegetables wrapped in corn tortillas with verde sauce and cheese",
       image: "https://www.spendwithpennies.com/wp-content/uploads/2021/03/Veggie-Enchiladas-SpendWithPennies-9.jpg",
@@ -62,7 +62,7 @@ const MexicanFoodCards = () => {
     {
       id: 5,
       name: "Carnitas Tacos",
-      price: "$13.99",
+      price: "€13.99",
       rating: 4.9,
       description: "Slow-cooked pork shoulder with pickled onions and chipotle crema",
       image: "https://images.unsplash.com/photo-1613514785940-daed07799d9b?w=400&h=300&fit=crop",
@@ -73,7 +73,7 @@ const MexicanFoodCards = () => {
     {
       id: 6,
       name: "Shrimp Burrito Bowl",
-      price: "$16.75",
+      price: "€16.75",
       rating: 4.8,
       description: "Grilled shrimp with cilantro-lime rice, black beans, and mango salsa",
       image: "https://i.pinimg.com/736x/2f/ec/2c/2fec2c372d0b2907835ff0fdb8545343.jpg",

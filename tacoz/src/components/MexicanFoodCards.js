@@ -16,7 +16,7 @@ const MexicanFoodCards = () => {
       name: "Authentic Chicken Tacos",
       price: "€12.99",
       rating: 4.8,
-      description: "Tender grilled chicken with fresh cilantro, onions, and lime on corn tortillas",
+      description: "Tender chicken with fresh cilantro, onions, & lime on corn tortillas",
       image: "https://www.mexicanplease.com/wp-content/uploads/2018/01/best-chicken-tacos-closeup.jpg",
       category: "tacos",
       spicyLevel: 2,
@@ -40,7 +40,7 @@ const MexicanFoodCards = () => {
       name: "Spicy Jalapeño Quesadilla",
       price: "€10.99",
       rating: 4.7,
-      description: "Crispy tortilla filled with melted cheese, jalapeños, and seasoned chicken",
+      description: "Crispy tortilla filled with melted cheese, jalapeños, and chicken",
       image: "https://images.unsplash.com/photo-1618040996337-56904b7850b9?w=400&h=300&fit=crop",
       category: "quesadillas",
       spicyLevel: 3,
@@ -52,7 +52,7 @@ const MexicanFoodCards = () => {
       name: "Veggie Enchiladas",
       price: "€13.25",
       rating: 4.5,
-      description: "Roasted vegetables wrapped in corn tortillas with verde sauce and cheese",
+      description: "Roasted vegetables wrapped in corn tortillas with sauce & cheese",
       image: "https://www.spendwithpennies.com/wp-content/uploads/2021/03/Veggie-Enchiladas-SpendWithPennies-9.jpg",
       category: "enchiladas",
       spicyLevel: 1,
@@ -264,7 +264,7 @@ const MexicanFoodCards = () => {
 
                 {/* Order Platforms */}
                 <div className="platform-row">
-                  <span className="platform-label">Order via:</span>
+                  <span className="platform-label">Order:</span>
                   <div className="platform-buttons">
                     {[delimg1, delimg2, delimg3].map(platform => (
                       // <button

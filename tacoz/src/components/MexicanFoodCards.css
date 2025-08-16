@@ -367,12 +367,12 @@
 .platform-label {
   font-size: 0.875rem;
   line-height: 1.25rem;
-  color: #4b5563;
+  color: #a0a9b5;
   font-weight: 500;
 }
 
 .platform-buttons {
-  overflow: scroll;
+  overflow-x: scroll;
   display: flex;
   gap: 0.5rem;
 }
@@ -780,12 +780,48 @@
   animation: pulse-once 0.3s ease-out;
 }
 @media (max-width: 800px) {
+  .food-grid
+{
+  
+    gap: .5rem;
+}
+.filter-button {
+    padding: 10px 20px;
+}
+.filter-section {
+    margin-bottom: 1rem;
+    padding: .5rem;
+}
   .card-header-row{
-    display: flex;
-    flex-direction: column;
+           justify-content: space-between;
+        display: flex;
+        align-items: self-start;
+    
   }
+  .card-title {
+  font-size: .9rem;
+
+}
   .card-content {
     padding: .5rem;
+}
+.card-price
+
+ {
+    font-size: 1rem;
+    line-height: 2rem;
+    font-weight: 700;
+    color: #ea580c;
+}
+.card-button svg {
+    width: 1rem;
+    height: auto;
+}
+.card-button
+
+ {
+    padding: 0rem;
+  
 }
 .card-description {
     /* font-size: 12px; */
@@ -796,4 +832,23 @@
     margin-bottom: 1rem;
     line-height: 1.625;
 }
+}
+
+/* Chrome, Edge, Safari */
+.platform-buttons::-webkit-scrollbar {
+  height: 3px; /* thin horizontal scrollbar */
+}
+
+.platform-buttons::-webkit-scrollbar-track {
+  background: #f1f1f1; 
+  border-radius: 10px;
+}
+
+.platform-buttons::-webkit-scrollbar-thumb {
+  background: #c6c6c6; 
+  border-radius: 10px;
+}
+
+.platform-buttons::-webkit-scrollbar-thumb:hover {
+  background: #9c9c9c; 
 }

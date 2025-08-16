@@ -1,0 +1,87 @@
+.shuffle-hero {
+  width: 100%;
+  padding: 3rem 2rem;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  max-width: 1200px;
+  margin: auto;
+}
+
+@media (min-width: 768px) {
+  .shuffle-hero {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.shuffle-text .subtitle {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-size: 0.875rem;
+  color: #6366f1;
+  font-weight: 500;
+}
+
+.shuffle-text .title {
+  font-size: 2.25rem;
+  font-weight: 600;
+}
+
+@media (min-width: 768px) {
+  .shuffle-text .title {
+    font-size: 3.75rem;
+  }
+}
+
+.shuffle-text .description {
+  font-size: 1rem;
+  color: #334155;
+  margin: 1rem 0;
+}
+
+@media (min-width: 768px) {
+  .shuffle-text .description {
+    margin: 1.5rem 0;
+    font-size: 1.125rem;
+  }
+}
+
+.cta-btn {
+  background-color: #6366f1;
+  color: white;
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+  border: none;
+  cursor: pointer;
+}
+
+.cta-btn:hover {
+  background-color: #4f46e5;
+}
+
+.cta-btn:active {
+  transform: scale(0.95);
+}
+
+.shuffle-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+  height: 450px;
+  gap: 4px;
+}
+
+.square {
+  width: 100%;
+  height: 100%;
+  background-position: center;
+  border-radius: 4px;
+
+  background: transparent;
+  mix-blend-mode: multiply;
+    filter: brightness(1.1) contrast(1.1);
+
+
+}

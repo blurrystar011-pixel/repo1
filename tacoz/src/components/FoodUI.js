@@ -1,35 +1,42 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styled, { keyframes } from "styled-components";
-import Line from '../assets/line.png';
-import img1 from '../assets/1.png';
-import img2 from '../assets/2.png';
-import img3 from '../assets/5.png';
-import img6 from '../assets/img6.png';
-import img7 from '../assets/img7.png';
-import img8 from '../assets/tomato.png';
-import img9 from '../assets/leaf.png';
-import './FoodUI.css';
-// Floating animation for food images
+import Line from "../assets/line.png";
+import img1 from "../assets/1.png";
+import img2 from "../assets/2.png";
+import img3 from "../assets/5.png";
+import img6 from "../assets/img6.png";
+import img8 from "../assets/tomato.png";
+import img9 from "../assets/leaf.png";
+import "./FoodUI.css";
+
+// Floating animation
 const float = keyframes`
-  0%, 100% { transform: translateY(0) }
-  50% { transform: translateY(-15px) }
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-15px); }
+`;
+
+// Slide in animation
+const slideIn = keyframes`
+  from { transform: translateX(var(--start-x)); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
 `;
 
 const Container = styled.div`
   position: relative;
-   min-height: 80vh;
+  height: 80vh;
   background: #fff;
-  overflow-x: hidden;
-  display: flex;
+
+   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   padding: 3rem 1rem 6rem;
   font-family: "Poppins", sans-serif;
-  color: #4a5568; /* gray-700 */
+  color: #4a5568;
 `;
+
 const LineImage = styled.img`
-height: 100%;
+  height: 100%;
   position: absolute;
   width: 100%;
   max-width: 900px;
@@ -60,36 +67,52 @@ const Subtitle = styled.p`
   margin-bottom: 4rem;
 `;
 
+const rotate = keyframes`
+  0% { transform: rotate(0deg); }
+  50% { transform: rotate(2deg); }
+  100% { transform: rotate(0deg); }
+`;
+
+const pulse = keyframes`
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.02); }
+`;
+
 const FloatingImage = styled.img`
   position: absolute;
   width: ${(props) => props.width || "120px"};
   top: ${(props) => props.top};
   left: ${(props) => props.left};
   right: ${(props) => props.right};
-  animation: ${float} 4s ease-in-out infinite;
+    animation: ${float} 4s ease-in-out infinite;
   pointer-events: none;
   user-select: none;
   object-fit: contain;
   z-index: 0;
+  opacity: 0;
+  transform: translateX(var(--start-x, 0));
 
-  /* Tablet: 769px to 1024px */
+  &.visible {
+    animation: 
+      ${slideIn} var(--duration, 3s) ease-out forwards,
+      ${float} 10s ease-in-out infinite,
+      ${rotate} 14s ease-in-out infinite,
+      ${pulse} 12s ease-in-out infinite;
+    animation-delay: 0s, var(--duration, 3s), var(--duration, 3s), var(--duration, 3s);
+  }
+
   @media (max-width: 1024px) and (min-width: 769px) {
-    width: ${(props) => props.tabletWidth || props.width || "150px"};
-    top: ${(props) => props.tabletTop || props.top};
+    width: ${(props) => props.tabletWidth || props.width || "150px"};    top: ${(props) => props.tabletTop || props.top};
     left: ${(props) => props.tabletLeft || props.left};
     right: ${(props) => props.tabletRight || props.right};
   }
 
-  /* Mobile: 768px and below */
   @media (max-width: 768px) {
     width: ${(props) => props.mobileWidth || props.width || "100px"};
     top: ${(props) => props.mobileTop || props.top};
     left: ${(props) => props.mobileLeft || props.left};
-    right: ${(props) => props.mobileRight || props.right};
-  }
+    right: ${(props) => props.mobileRight || props.right};  }
 `;
-
-
 
 const StatsBar = styled.div`
   position: fixed;
@@ -137,7 +160,6 @@ const IconWrapper = styled.div`
   }
 `;
 
-// SVG icons
 const RestaurantIcon = () => (
   <svg fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
     <path d="M3 9l9-6 9 6v11a1 1 0 0 1-1 1h-6v-6H10v6H4a1 1 0 0 1-1-1z" />
@@ -158,77 +180,118 @@ const OrdersIcon = () => (
 );
 
 export default function FoodUI() {
+  const [visibleImages, setVisibleImages] = useState({});
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setVisibleImages((prev) => ({ ...prev, [entry.target.dataset.id]: true }));
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.2 }
+    );
+
+    document.querySelectorAll(".anim-img").forEach((img) => observer.observe(img));
+  }, []);
+
   return (
     <Container>
-          <LineImage src={Line} alt="Decorative line" />
-      {/* Replace the URLs below with your own valid images if you want */}
+      <LineImage src={Line} alt="Decorative line" />
+
       <FloatingImage
         src={img1}
         alt="Burger"
         top="10%"
         left="10%"
-          width="250px"
-          mobileTop= "15%"
+        width="250px"
+        className={`anim-img ${visibleImages.img1 ? "visible" : ""}`}
+        data-id="img1"
+        style={{ "--start-x": "-80px", "--duration": "3.2s" }}
+        mobileTop= "15%"
           mobileLeft="5%" 
   tabletWidth="180px"   // width on tablets (769px-1024px)
-  mobileWidth="150px"   // width on mobiles (<=768px)
+  mobileWidth="150px" 
       />
+
       <FloatingImage
         src={img2}
         right="5%"
-        mobileTop= "5%"
-          width="250px"
+        top="5%"
+        width="250px"
+        className={`anim-img ${visibleImages.img2 ? "visible" : ""}`}
+        data-id="img2"
+        style={{ "--start-x": "80px", "--duration": "3.5s" }}
+          mobileTop= "5%"
+        
   tabletWidth="180px"   // width on tablets (769px-1024px)
-  mobileWidth="150px"   // width on mobiles (<=768px)
+  mobileWidth="150px"   // width on mobiles 
       />
+
       <FloatingImage
         src={img3}
         top="60%"
         right="40%"
-         width="250px"
+        width="250px"
+        className={`anim-img ${visibleImages.img3 ? "visible" : ""}`}
+        data-id="img3"
+        style={{ "--start-x": "80px", "--duration": "3.5s" }}
          mobileTop= "65%"
          mobileRight="10%" 
   tabletWidth="180px"   // width on tablets (769px-1024px)
-  mobileWidth="150px"   // width on mobiles (<=768px)
+  mobileWidth="150px"
       />
+
       <FloatingImage
         src={img6}
         top="70%"
         left="15%"
-          width="250px"
-           mobileTop= "65%"
+        width="250px"
+        className={`anim-img ${visibleImages.img6 ? "visible" : ""}`}
+        data-id="img6"
+        style={{ "--start-x": "-80px", "--duration": "4s" }}
+         mobileTop= "65%"
           mobileLeft="5%" 
   tabletWidth="180px"   // width on tablets (769px-1024px)
   mobileWidth="150px"   // width on mobiles (<=768px)
         style={{ animationDuration: "6s" }}
       />
+
       <FloatingImage
         src={img8}
         top="15%"
         right="50%"
-         mobileTop= "5%"
-        width="100px"
-        style={{ animationDuration: "5s" }}
+        mobileTop= "5%"        width="100px"
+        className={`anim-img ${visibleImages.img8a ? "visible" : ""}`}
+        data-id="img8a"
+        style={{ "--start-x": "80px", "--duration": "3.8s" }}
       />
-          <FloatingImage
+
+      <FloatingImage
         src={img9}
         top="20%"
         right="15%"
         width="100px"
-        style={{ animationDuration: "5s" }}
+        className={`anim-img ${visibleImages.img9 ? "visible" : ""}`}
+        data-id="img9"
+        style={{ "--start-x": "80px", "--duration": "3.8s" }}
       />
-          <FloatingImage
+
+      <FloatingImage
         src={img8}
         top="70%"
         left="5%"
-          mobileLeft="40%"
-        width="100px"
-        style={{ animationDuration: "5s" }}
+ mobileLeft="40%"        width="100px"
+        className={`anim-img ${visibleImages.img8b ? "visible" : ""}`}
+        data-id="img8b"
+        style={{ "--start-x": "-80px", "--duration": "3.8s" }}
       />
 
       <Title>
-        Better food for <br />
-        more people
+        Better food for <br /> more people
       </Title>
       <Subtitle>
         For over a decade, we’ve enabled our customers to discover new tastes,

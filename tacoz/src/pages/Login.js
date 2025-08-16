@@ -4,6 +4,8 @@ import { signInWithPopup, getAuth, FacebookAuthProvider } from "firebase/auth"; 
 import { auth, googleProvider } from "./firebase";
 const LoginModal = () => {
   const BASE_URL = process.env.REACT_APP_BACKEND_URL;
+  console.log(process.env.REACT_APP_BACKEND_URL)
+
   const [showModal, setShowModal] = useState(false);
   const [show, setShow] = useState(false);
      const [formData, setFormData] = useState({

@@ -87,7 +87,7 @@ const MexicanFoodHero = () => {
   }, []);
 
   return <>
-  {[ 'lg'].map((expand) => (
+  {/* {[ 'lg'].map((expand) => (
         <Navbar key={expand} expand={expand} className="sticky-top">
           <Container fluid>
             <Navbar.Brand href="#" className='logo-text'> <span className='text-white'> Hello</span> <span className="highlight">Tacozz</span></Navbar.Brand>
@@ -125,7 +125,7 @@ const MexicanFoodHero = () => {
             </Navbar.Offcanvas>
           </Container>
         </Navbar>
-      ))}
+      ))} */}
 
 
 
@@ -202,30 +202,7 @@ const MexicanFoodHero = () => {
         <path d="M32 4C12 4 4 20 4 32s8 28 28 28 28-12 28-28S52 4 32 4z" fill="#e63946"/>
       </svg>
     </div>
-      {/* <Space direction="vertical">
-    <Space wrap>
-      <Dropdown menu={{ items }} placement="bottomLeft">
-        <Button>bottomLeft</Button>
-      </Dropdown>
-      <Dropdown menu={{ items }} placement="bottom">
-        <Button>bottom</Button>
-      </Dropdown>
-      <Dropdown menu={{ items }} placement="bottomRight">
-        <Button>bottomRight</Button>
-      </Dropdown>
-    </Space>
-    <Space wrap>
-      <Dropdown menu={{ items }} placement="topLeft">
-        <Button>topLeft</Button>
-      </Dropdown>
-      <Dropdown menu={{ items }} placement="top">
-        <Button>top</Button>
-      </Dropdown>
-      <Dropdown menu={{ items }} placement="topRight">
-        <Button>topRight</Button>
-      </Dropdown>
-    </Space>
-  </Space> */}
+
   </>
 };
 

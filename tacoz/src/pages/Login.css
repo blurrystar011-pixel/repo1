@@ -1,0 +1,120 @@
+/* Background Overlay */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+/* Modal Box */
+.modal-box {
+  background: #fff8f0;
+  padding: 25px;
+  width: 350px;
+  border-radius: 16px;
+  text-align: center;
+  border: 4px solid #ff8c42; /* Mexican orange */
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+  position: relative;
+  animation: popIn 0.3s ease;
+}
+
+/* Animation */
+@keyframes popIn {
+  from { transform: scale(0.8); opacity: 0; }
+  to   { transform: scale(1); opacity: 1; }
+}
+
+h2 {
+  color: #e63946; /* Fiesta red */
+  margin-bottom: 10px;
+}
+
+p {
+  color: #444;
+  margin-bottom: 15px;
+}
+
+.btn {
+  width: 100%;
+  padding: 10px;
+  margin: 6px 0;
+  border: none;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+/* Google */
+.google-btn {
+  background: #db4437;
+  color: white;
+}
+.google-btn:hover {
+  background: #c23321;
+}
+
+/* Apple */
+.apple-btn {
+  background: #000;
+  color: white;
+}
+.apple-btn:hover {
+  background: #333;
+}
+
+/* Manual Form */
+.manual-btn {
+  background: #38b000;
+  color: white;
+}
+.manual-btn:hover {
+  background: #2d8700;
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+  margin: 6px 0;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+/* Divider */
+.divider {
+  margin: 15px 0;
+  color: #666;
+  font-size: 14px;
+  position: relative;
+}
+.divider::before,
+.divider::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 40%;
+  height: 1px;
+  background: #ccc;
+}
+.divider::before { left: 0; }
+.divider::after { right: 0; }
+
+/* Close Button */
+.close-btn {
+  position: absolute;
+  top: 8px;
+  right: 10px;
+  background: transparent;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  color: #444;
+}
+.close-btn:hover {
+  color: #e63946;
+}

@@ -3,6 +3,7 @@ import "./Login.css";
 import { signInWithPopup, getAuth, FacebookAuthProvider } from "firebase/auth"; // 👈 Import FacebookAuthProvider
 import { auth, googleProvider } from "./firebase";
 const LoginModal = () => {
+  const BASE_URL = process.env.REACT_APP_BACKEND_URL;
   const [showModal, setShowModal] = useState(false);
   const [show, setShow] = useState(false);
      const [formData, setFormData] = useState({
@@ -43,7 +44,7 @@ const handleGoogleLogin = async () => {
     };
 
     // 3. Send the user data to your backend API
-    const response = await fetch("http://localhost:5000/api/social-login", {
+    const response = await fetch(`${BASE_URL}/api/social-login`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -51,7 +52,7 @@ const handleGoogleLogin = async () => {
       body: JSON.stringify(userData),
     });
     /////////////////////////
-        const resp = await fetch("http://localhost:5000/api/AllUser", {
+        const resp = await fetch(`${BASE_URL}/api/AllUser`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -106,7 +107,7 @@ const handleGoogleLogin = async () => {
     setMessage('');
 
     try {
-      const response = await fetch('http://localhost:5000/api/send-otp', {
+      const response = await fetch(`${BASE_URL}/api/send-otp`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -131,7 +132,7 @@ const handleGoogleLogin = async () => {
     setMessage('');
 
     try {
-      const response = await fetch('http://localhost:5000/api/verify-otp', {
+      const response = await fetch(`${BASE_URL}/api/verify-otp`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

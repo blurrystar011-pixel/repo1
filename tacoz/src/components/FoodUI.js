@@ -252,12 +252,12 @@ export default function FoodUI() {
         width="250px"
         className={`anim-img ${visibleImages.img6 ? "visible" : ""}`}
         data-id="img6"
-        style={{ "--start-x": "-80px", "--duration": "4s" }}
+        style={{ "--start-x": "-80px", "--duration": "4s",animationDuration: "6s" }}
          mobileTop= "65%"
           mobileLeft="5%" 
   tabletWidth="180px"   // width on tablets (769px-1024px)
   mobileWidth="150px"   // width on mobiles (<=768px)
-        style={{ animationDuration: "6s" }}
+      
       />
 
       <FloatingImage

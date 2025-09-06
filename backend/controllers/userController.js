@@ -28,12 +28,37 @@ exports.sendOtp = async (req, res) => {
     const otp = Math.floor(100000 + Math.random() * 900000).toString();
     otpStore[email] = otp;
 
-    const mailOptions = {
-      from: process.env.EMAIL_USER,
-      to: email,
-      subject: 'Your OTP for Registration',
-      html: `<p>Your OTP for registration is: <b>${otp}</b></p>`,
-    };
+const mailOptions = {
+  from: process.env.EMAIL_USER,
+  to: email,
+  subject: "Your One-Time Password (OTP) - ¡Bienvenido to Hello Tacoz!",
+  html: `
+    <div style="font-family: Arial, sans-serif; background-color: #fff7f0; padding: 20px; border-radius: 8px; max-width: 500px; margin: auto; border: 1px solid #f0e0d0;">
+      <div style="text-align: center;">
+        <h1 style="color: #d32f2f; margin-bottom: 10px;">🌮 Hello Tacoz</h1>
+        <p style="color: #444; font-size: 16px; margin: 0;">Authentic Mexican Flavours in the UK</p>
+      </div>
+      <hr style="border: none; border-top: 1px solid #e0cfc0; margin: 20px 0;" />
+      <p style="font-size: 16px; color: #333;">
+        Hola! 👋 <br><br>
+        To complete your registration, please use the following one-time password (OTP):
+      </p>
+      <div style="text-align: center; margin: 25px 0;">
+        <span style="font-size: 24px; font-weight: bold; background-color: #ffe5d0; padding: 12px 24px; border-radius: 6px; color: #d32f2f; display: inline-block;">
+          ${otp}
+        </span>
+      </div>
+      <p style="font-size: 14px; color: #666;">
+        This OTP will expire in <b>10 minutes</b>. If you didn’t request this, please ignore this email.
+      </p>
+      <hr style="border: none; border-top: 1px solid #e0cfc0; margin: 20px 0;" />
+      <p style="font-size: 13px; color: #999; text-align: center;">
+        © ${new Date().getFullYear()} [Your Brand Name]. Bringing Mexican street food to your doorstep 🌶️
+      </p>
+    </div>
+  `,
+};
+
 
     await transporter.sendMail(mailOptions);
     res.status(200).json({ message: 'OTP sent successfully.' });

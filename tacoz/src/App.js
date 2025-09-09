@@ -2,10 +2,14 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import MexicanFoodHero from "./components/Header";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
-import { Menu } from "./pages/Menu";
+import CartPage from "./pages/Cart";
+import  Menu  from "./pages/Menu";
 import { FacebookProvider } from "react-facebook";
 import  Navbar1  from "./components/Navbar";
-
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import './App.css'
+import Footer from "./components/Footer";
 function App() {
   const FACEBOOK_APP_ID = "1122436013029840"; // 👈 Your Facebook App ID
 
@@ -14,18 +18,21 @@ function App() {
       <Router>
         {/* Header always visible */}
            <Navbar1></Navbar1>
-        <MexicanFoodHero />
+   
      
 
         {/* Routes */}
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/menu" element={<Menu />} />
+           <Route path="/cart" element={<CartPage />} />
         </Routes>
 
         {/* Global Login Popup (shown automatically on visit) */}
         <Login />
       </Router>
+      <Footer></Footer>
+       <ToastContainer position="top-right" autoClose={3000} />
     </FacebookProvider>
   );
 }

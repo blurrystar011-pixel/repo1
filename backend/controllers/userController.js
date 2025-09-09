@@ -1,7 +1,8 @@
 const User = require('../models/User');
 const AllUser = require('../models/AllUser');
 const nodemailer = require('nodemailer');
-
+const path = require('path');
+const multer = require('multer');
 
 // Temporary OTP storage (In a real app, use Redis or a database with TTL)
 const otpStore = {};
@@ -138,5 +139,33 @@ exports.addAllUser = async (req, res) => {
   } catch (error) {
     console.error('Error during all data:', error);
     return res.status(500).json({ message: 'Failed to process social login.', error: error.message });
+  }
+};
+
+
+// Upload profile picture
+exports.uploadProfilePic = async (req, res) => {
+  try {
+    const email = req.body.email;
+    if (!req.file) {
+      return res.status(400).json({ message: 'No file uploaded.' });
+    }
+
+    const filePath = `/uploads/${req.file.filename}`;
+
+    const user = await User.findOneAndUpdate(
+      { email },
+      { photo: filePath },
+      { new: true }
+    );
+
+    if (!user) {
+      return res.status(404).json({ message: 'User not found' });
+    }
+
+    res.json({ photoUrl: filePath });
+  } catch (err) {
+    console.error('Upload error:', err);
+    res.status(500).json({ message: 'Upload failed.' });
   }
 };

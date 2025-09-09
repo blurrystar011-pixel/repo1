@@ -1,0 +1,22 @@
+.sidebar {
+  width: 260px;
+  padding: 16px;
+  background: #fff;
+}
+
+.sidebar-card {
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+}
+
+.sidebar-card .card-title {
+  font-size: 1.1rem;
+  margin-bottom: 12px;
+  font-weight: 600;
+}
+
+.sidebar p {
+  margin: 0 0 8px 0;
+  color: #444;
+  font-size: 0.9rem;
+}

@@ -476,3 +476,10 @@ nav {
 }
 
 /* navbar end */
+/* in your CSS file */
+@media (min-width: 1024px) and (max-width: 1440px) {
+  .laptop-offcanvas {
+    display: flex;
+    align-items: center;
+  }
+}

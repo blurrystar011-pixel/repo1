@@ -6,6 +6,7 @@ import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import './ProductModel.css'; // new css file
 const ProductModal = ({ item, onClose }) => {
+  console.log('ProductModal item:', item); // Debugging line
   const dispatch = useDispatch();
   const navigate = useNavigate();
 

@@ -99,21 +99,21 @@ toast.error("Upload failed!");
                   <span className="highlight">Tacoz</span>
                 </Offcanvas.Title>
               </Offcanvas.Header>
-              <Offcanvas.Body style={{ display: "flex", alignItems: "center" }}>
+             <Offcanvas.Body className="laptop-offcanvas">
             <Nav className="justify-content-center flex-grow-1 pe-3 nav-item">
-  <Nav.Link as={NavLink} to="/" className="px-3 text-white">
+  <Nav.Link as={NavLink} to="/" className="px-3 text-lg-white">
     HOME
   </Nav.Link>
-  <Nav.Link as={NavLink} to="/menu" className="px-3 text-white">
+  <Nav.Link as={NavLink} to="/menu" className="px-3 text-lg-white text-sm-dark">
     MENU
   </Nav.Link>
-  <Nav.Link as={NavLink} to="/offers" className="px-3 text-white">
+  <Nav.Link as={NavLink} to="/offers" className="px-3 text-lg-white text-sm-dark">
     OFFERS
   </Nav.Link>
-  <Nav.Link as={NavLink} to="/cart" className="px-3 text-white">
+  <Nav.Link as={NavLink} to="/cart" className="px-3 text-lg-white text-sm-dark">
     CART
   </Nav.Link>
-  <Nav.Link as={NavLink} to="/contact" className="px-3 text-white">
+  <Nav.Link as={NavLink} to="/contact" className="px-3 text-lg-white text-sm-dark">
     CONTACT US
   </Nav.Link>
 </Nav>
@@ -130,7 +130,7 @@ toast.error("Upload failed!");
 
                 {/* User section */}
                 {user?.name ? (
-                  <div className="d-flex align-items-center ms-3">
+                  <div className="d-flex align-items-center ms-3 mt-sm-3">
                     <label htmlFor="profile-upload">
                       <img
                         src={user.photo || "/default-avatar.png"}
@@ -152,7 +152,7 @@ toast.error("Upload failed!");
                       style={{ display: "none" }}
                       onChange={handleProfilePicChange}
                     />
-                    <span className="text-white me-2">{user.name}</span>
+                    <span className="text-lg-white text-sm-dark me-2">{user.name}</span>
                     <Button type="primary" danger onClick={handleLogout}>
                       Logout
                     </Button>

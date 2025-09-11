@@ -1,40 +1,33 @@
 import React, { useState } from "react";
 import Container from "react-bootstrap/Container";
-import Form from "react-bootstrap/Form";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import Offcanvas from "react-bootstrap/Offcanvas";
-import { Button, message } from "antd"; // message for notifications
-import swal from 'sweetalert';
+import { Badge } from "antd";
+import { ShoppingCartOutlined } from "@ant-design/icons";
 import { NavLink } from "react-router-dom";
-
 
 import { useSelector, useDispatch } from "react-redux";
 import { clearUser, setUser } from "../redux/userSlice";
 import LoginModal from "./LoginModel";
 import "./Header.css";
-import { toast, ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-
-
-
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import avtar from "../assets/default-avatar.png";
 
 const Navbar1 = () => {
   const [showModal, setShowModal] = useState(false);
   const user = useSelector((state) => state.user);
+  const cart = useSelector((state) => state.cart);
   const dispatch = useDispatch();
 
   const BASE_URL = process.env.REACT_APP_BACKEND_URL || "http://localhost:5000";
 
-  // ✅ Logout handler with feedback
   const handleLogout = () => {
     dispatch(clearUser());
-    // message.success("Logout successful!"); // Ant Design notification
-    // swal("Good job!", "Logout successful!", "success");
-    toast.success("Logout successful!")
+    toast.success("Logout successful!");
   };
 
-  // ✅ Profile picture upload handler
   const handleProfilePicChange = async (e) => {
     const file = e.target.files[0];
     if (!file || !user?.email) return;
@@ -53,38 +46,82 @@ const Navbar1 = () => {
       if (response.ok && data.photoUrl) {
         const updatedUser = { ...user, photo: `${BASE_URL}${data.photoUrl}` };
         dispatch(setUser(updatedUser));
-        // message.success("Profile picture updated successfully!"); // feedback
-          toast.success("Profile picture updated!");
+        toast.success("Profile picture updated!");
       } else {
-        // message.error("Upload failed: " + data.message);
-      
-toast.error("Upload failed!");
+        toast.error("Upload failed!");
       }
     } catch (err) {
       console.error("Error uploading profile picture:", err);
-      // message.error("Error uploading profile picture.");
       toast.error("Upload failed!");
     }
   };
 
-  // ✅ Show success login notification
   const handleLoginSuccess = (userData) => {
     dispatch(setUser(userData));
-    console.log('working success')
-    // message.success("Login successful!");
-     toast.success("Profile picture updated!");
+    toast.success("Login successful!");
   };
 
   return (
     <>
       {["lg"].map((expand) => (
-        <Navbar key={expand} expand={expand} className="sticky-top">
-          <Container fluid>
-            <Navbar.Brand href="#" className="logo-text">
-              <span className="text-white"> Hello</span>{" "}
-              <span className="highlight">Tacoz</span>
+        <Navbar
+          key={expand}
+          expand={expand}
+          className="sticky-top mobile-navbar px-2 py-2"
+        >
+          <Container fluid className="d-flex align-items-center justify-content-between">
+            {/* Left: Brand */}
+            <Navbar.Brand as={NavLink} to="/" className="logo-text text-white">
+              Tacoz
             </Navbar.Brand>
-            <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-${expand}`} />
+
+           
+
+            {/* Right: Cart + Hamburger */}
+            <div className="d-flex align-items-center gap-3">
+               {/* Center: Always show Profile Image (default if logged out) */}
+            <div className="d-lg-none">
+              <label htmlFor="profile-upload-mobile" className="mb-0">
+                <img
+                  src={
+                    user?.photo
+                      ? user.photo
+                      : avtar // default empty avatar
+                  }
+                  alt="Profile"
+                  style={{
+                    width: "32px",
+                    height: "32px",
+                    
+                    cursor: user?.name ? "pointer" : "default",
+                    
+                  }}
+                  title={user?.name ? "Change profile picture" : "Guest"}
+                />
+              </label>
+              {user?.name && (
+                <input
+                  type="file"
+                  id="profile-upload-mobile"
+                  accept="image/*"
+                  style={{ display: "none" }}
+                  onChange={handleProfilePicChange}
+                />
+              )}
+            </div>
+              <NavLink to="/cart" className="cart-icon">
+                <Badge count={cart?.items?.length || 0} offset={[0, 6]} size="large">
+                  <ShoppingCartOutlined style={{ fontSize: "32px", color: "#000" }} />
+                </Badge>
+              </NavLink>
+
+              <Navbar.Toggle
+                aria-controls={`offcanvasNavbar-expand-${expand}`}
+                className="border-0"
+              />
+            </div>
+
+            {/* Offcanvas */}
             <Navbar.Offcanvas
               id={`offcanvasNavbar-expand-${expand}`}
               aria-labelledby={`offcanvasNavbarLabel-expand-${expand}`}
@@ -95,77 +132,70 @@ toast.error("Upload failed!");
                   id={`offcanvasNavbarLabel-expand-${expand}`}
                   className="logo-text"
                 >
-                  <span className="text-white"> Hello</span>{" "}
+                  <span className="text-dark">Hello</span>{" "}
                   <span className="highlight">Tacoz</span>
                 </Offcanvas.Title>
               </Offcanvas.Header>
-             <Offcanvas.Body className="laptop-offcanvas">
-            <Nav className="justify-content-center flex-grow-1 pe-3 nav-item">
-  <Nav.Link as={NavLink} to="/" className="px-3 text-lg-white">
-    HOME
-  </Nav.Link>
-  <Nav.Link as={NavLink} to="/menu" className="px-3 text-lg-white text-sm-dark">
-    MENU
-  </Nav.Link>
-  <Nav.Link as={NavLink} to="/offers" className="px-3 text-lg-white text-sm-dark">
-    OFFERS
-  </Nav.Link>
-  <Nav.Link as={NavLink} to="/cart" className="px-3 text-lg-white text-sm-dark">
-    CART
-  </Nav.Link>
-  <Nav.Link as={NavLink} to="/contact" className="px-3 text-lg-white text-sm-dark">
-    CONTACT US
-  </Nav.Link>
-</Nav>
+              <Offcanvas.Body>
+                <Nav className="justify-content-center flex-grow-1 pe-3 nav-item">
+                  <Nav.Link as={NavLink} to="/" className="px-3">
+                    HOME
+                  </Nav.Link>
+                  <Nav.Link as={NavLink} to="/menu" className="px-3">
+                    MENU
+                  </Nav.Link>
+                  <Nav.Link as={NavLink} to="/offers" className="px-3">
+                    OFFERS
+                  </Nav.Link>
+                  <Nav.Link as={NavLink} to="/cart" className="px-3">
+                    CART
+                  </Nav.Link>
+                  <Nav.Link as={NavLink} to="/contact" className="px-3">
+                    CONTACT US
+                  </Nav.Link>
+                </Nav>
 
-                <Form className="d-flex align-items-center">
-                  <Form.Control
-                    type="search"
-                    placeholder="Search"
-                    className="me-2"
-                    aria-label="Search"
-                  />
-                  <Button variant="outline-success">Search</Button>
-                </Form>
-
-                {/* User section */}
-                {user?.name ? (
-                  <div className="d-flex align-items-center ms-3 mt-sm-3">
-                    <label htmlFor="profile-upload">
-                      <img
-                        src={user.photo || "/default-avatar.png"}
-                        alt={user.name}
-                        style={{
-                          width: "35px",
-                          height: "35px",
-                          borderRadius: "50%",
-                          marginRight: "10px",
-                          cursor: "pointer",
-                        }}
-                        title="Click to change profile picture"
+                {/* Desktop user section */}
+                <div className="d-none d-lg-flex align-items-center ms-3">
+                  {user?.name ? (
+                    <>
+                      <label htmlFor="profile-upload-desktop">
+                        <img
+                          src={user.photo || avtar}
+                          alt={user.name}
+                          style={{
+                            width: "35px",
+                            height: "35px",
+                            borderRadius: "50%",
+                            marginRight: "10px",
+                            cursor: "pointer",
+                          }}
+                        />
+                      </label>
+                      <input
+                        type="file"
+                        id="profile-upload-desktop"
+                        accept="image/*"
+                        style={{ display: "none" }}
+                        onChange={handleProfilePicChange}
                       />
-                    </label>
-                    <input
-                      type="file"
-                      id="profile-upload"
-                      accept="image/*"
-                      style={{ display: "none" }}
-                      onChange={handleProfilePicChange}
-                    />
-                    <span className="text-lg-white text-sm-dark me-2">{user.name}</span>
-                    <Button type="primary" danger onClick={handleLogout}>
-                      Logout
-                    </Button>
-                  </div>
-                ) : (
-                  <Button
-                    variant="light"
-                    className="ms-3"
-                    onClick={() => setShowModal(true)}
-                  >
-                    Login
-                  </Button>
-                )}
+                      <span className="me-2">{user.name}</span>
+                      <button
+                        className="btn btn-danger btn-sm"
+                        onClick={handleLogout}
+                      >
+                        Logout
+                      </button>
+                    </>
+                  ) : (
+                    <button
+                      className="btn btn-light ms-3"
+                      onClick={() => setShowModal(true)}
+                    >
+                      Login
+                    </button>
+                  )}
+                </div>
               </Offcanvas.Body>
             </Navbar.Offcanvas>
           </Container>
@@ -175,11 +205,9 @@ toast.error("Upload failed!");
       {showModal && (
         <LoginModal
           setShowModal={setShowModal}
-          onLoginSuccess={handleLoginSuccess} // callback to show success message
+          onLoginSuccess={handleLoginSuccess}
         />
       )}
-     
-
     </>
   );
 };

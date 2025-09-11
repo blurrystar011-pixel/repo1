@@ -1,12 +1,12 @@
-import React from 'react';
-import { X, Star, ShoppingCart, Zap } from 'lucide-react';
-import { useDispatch } from 'react-redux';
-import { addToCart } from '../redux/cartSlice';
-import { useNavigate } from 'react-router-dom';
-import { toast } from 'react-toastify';
-import './ProductModel.css'; // new css file
+import React from "react";
+import { X, Star, ShoppingCart, Zap } from "lucide-react";
+import { useDispatch } from "react-redux";
+import { addToCart } from "../redux/cartSlice";
+import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
+import "./ProductModel.css"; // keep CSS here
+
 const ProductModal = ({ item, onClose }) => {
-  console.log('ProductModal item:', item); // Debugging line
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -19,7 +19,7 @@ const ProductModal = ({ item, onClose }) => {
   const handleBuyNow = () => {
     dispatch(addToCart(item));
     toast.info(`Redirecting to cart... ⚡`);
-    navigate('/cart');
+    navigate("/cart");
   };
 
   return (
@@ -36,7 +36,7 @@ const ProductModal = ({ item, onClose }) => {
         {/* Content */}
         <div className="modal-body">
           <img
-            src={item.image || '/placeholder.jpg'}
+            src={item.image || "/placeholder.jpg"}
             alt={item.name}
             className="modal-img"
           />
@@ -50,7 +50,10 @@ const ProductModal = ({ item, onClose }) => {
               </span>
               <span>💸 {item.price} €</span>
               <span>
-                🚚 {item.deliveryPrice ? `${item.deliveryPrice} €` : 'Free Delivery'}
+                🚚{" "}
+                {item.deliveryPrice
+                  ? `${item.deliveryPrice} €`
+                  : "Free Delivery"}
               </span>
             </div>
 

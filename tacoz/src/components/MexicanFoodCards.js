@@ -1,14 +1,43 @@
 import React, { useState } from 'react';
-import { Heart, Share2, Star, Filter, Clock, Flame, X, Phone, MessageCircle } from 'lucide-react';
+import { Heart, Share2, Star, Filter, Clock, Flame, X, Phone, MessageCircle, ShoppingCart, Zap } from 'lucide-react';
+import { useDispatch } from "react-redux";
+import { addToCart } from "../redux/cartSlice";
+import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 import './MexicanFoodCards.css'; // Import the CSS file
 import delimg1 from '../assets/del (1).png';
 import delimg2 from '../assets/del (2).png';
 import delimg3 from '../assets/del (3).png';
+
 const MexicanFoodCards = () => {
   const [selectedFilter, setSelectedFilter] = useState('all');
   const [favorites, setFavorites] = useState(new Set());
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedItem, setSelectedItem] = useState(null);
+
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+const handleAddToCart = (item) => {
+  const itemWithNumericPrice = {
+    ...item,
+    price: parseFloat(item.price.replace("€", "")) // ✅ convert to number
+  };
+  dispatch(addToCart(itemWithNumericPrice));
+  toast.success(`${item.name} added to cart 🛒`);
+  closeModal();
+};
+
+const handleBuyNow = (item) => {
+  const itemWithNumericPrice = {
+    ...item,
+    price: parseFloat(item.price.replace("€", "")) // ✅ convert to number
+  };
+  dispatch(addToCart(itemWithNumericPrice));
+  toast.info(`Redirecting to cart... ⚡`);
+  navigate("/cart");
+};
+
 
   const foodItems = [
     {
@@ -21,7 +50,9 @@ const MexicanFoodCards = () => {
       category: "tacos",
       spicyLevel: 2,
       cookTime: "15-20 min",
-      offer: "20% OFF"
+      offer: "20% OFF",
+      _id:'68bc364e56a0395461c3d121'
+
     },
     {
       id: 2,
@@ -33,7 +64,8 @@ const MexicanFoodCards = () => {
       category: "bowls",
       spicyLevel: 1,
       cookTime: "10-15 min",
-      offer: "FREE DELIVERY"
+      offer: "FREE DELIVERY",
+        _id:'68bc364e56a0395461c3d122'
     },
     {
       id: 3,
@@ -45,7 +77,8 @@ const MexicanFoodCards = () => {
       category: "quesadillas",
       spicyLevel: 3,
       cookTime: "12-18 min",
-      offer: "BUY 2 GET 1"
+      offer: "BUY 2 GET 1",
+       _id:'68bc364e56a0395461c3d123'
     },
     {
       id: 4,
@@ -57,7 +90,8 @@ const MexicanFoodCards = () => {
       category: "enchiladas",
       spicyLevel: 1,
       cookTime: "20-25 min",
-      offer: "15% OFF"
+      offer: "15% OFF",
+       _id:'68bc364e56a0395461c3d124'
     },
     {
       id: 5,
@@ -68,7 +102,8 @@ const MexicanFoodCards = () => {
       image: "https://images.unsplash.com/photo-1613514785940-daed07799d9b?w=400&h=300&fit=crop",
       category: "tacos",
       spicyLevel: 2,
-      cookTime: "15-20 min"
+      cookTime: "15-20 min",
+       _id:'68bc364e56a0395461c3d125'
     },
     {
       id: 6,
@@ -80,7 +115,8 @@ const MexicanFoodCards = () => {
       category: "bowls",
       spicyLevel: 2,
       cookTime: "12-16 min",
-      offer: "NEW ITEM"
+      offer: "NEW ITEM",
+       _id:'68bc364e56a0395461c3d126'
     }
   ];
 
@@ -267,14 +303,8 @@ const MexicanFoodCards = () => {
                   <span className="platform-label">Order:</span>
                   <div className="platform-buttons">
                     {[delimg1, delimg2, delimg3].map(platform => (
-                      // <button
-                      //   key={platform}
-                      //   className="platform-button p-0"
-                      //   title={`Order via ${platform}`}
-                      // >
-                        <img style={{ width: '60px', height: '40px', objectFit:"contain" }} alt="Delivery Platform"
-                          src={platform}></img>
-                      // </button>
+                      <img style={{ width: '60px', height: '40px', objectFit:"contain" }} alt="Delivery Platform"
+                        src={platform}></img>
                     ))}
                   </div>
                 </div>
@@ -328,6 +358,22 @@ const MexicanFoodCards = () => {
                     </div>
                   </div>
                 </div>
+              </div>
+
+              {/* ✅ Cart Actions */}
+              <div className="modal-actions">
+                <button
+                  className="btn btn-add"
+                  onClick={() => handleAddToCart(selectedItem)}
+                >
+                  <ShoppingCart size={16} className="me-1" /> Add to Cart
+                </button>
+                <button
+                  className="btn btn-buy"
+                  onClick={() => handleBuyNow(selectedItem)}
+                >
+                  <Zap size={16} className="me-1" /> Buy Now
+                </button>
               </div>
 
               {/* Order Options */}

@@ -483,3 +483,68 @@ nav {
     align-items: center;
   }
 }
+/* Popup background overlay */
+.popup-overlay {
+  position: fixed;
+  inset: 0; /* shorthand for top:0; right:0; bottom:0; left:0 */
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+
+/* Popup modal box */
+.popup-content {
+  background: #fff;
+  padding: 24px;
+  border-radius: 12px;
+  max-width: 360px;
+  width: 90%;
+  text-align: center;
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.25);
+  animation: popupFadeIn 0.3s ease;
+}
+
+/* Popup animation */
+@keyframes popupFadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Buttons inside popup */
+.popup-content a {
+  display: block;
+  margin: 8px 0;
+  padding: 10px;
+  border-radius: 8px;
+  font-weight: bold;
+  text-decoration: none;
+  transition: transform 0.2s ease;
+   color: #e63946;
+}
+
+.popup-content a:hover {
+  transform: translateY(-2px);
+}
+
+/* Close button */
+.popup-content button {
+  background: #eee;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  margin-top: 12px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.popup-content button:hover {
+  background: #ddd;
+}

@@ -4,7 +4,10 @@ import './Header.css';
 import img1 from '../assets/1.png';
 import img2 from '../assets/2.png';
 import img3 from '../assets/5.png';
-
+import { useNavigate } from "react-router-dom";
+import delimg1 from  "../assets/del (1).png";
+import delimg2 from '../assets/del (2).png';
+import delimg3 from '../assets/del (3).png';
 import { Button, Dropdown, Space } from 'antd';
 // index.js or App.js
 
@@ -22,7 +25,8 @@ const MexicanFoodHero = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [scrolled, setScrolled] = useState(false);
   const [show, setShow] = useState(false);
-
+const [isPopupOpen, setIsPopupOpen] = useState(false);
+const navigate = useNavigate();
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
   const items = [
@@ -141,10 +145,51 @@ const MexicanFoodHero = () => {
             Authentic <span className="highlight">Mexican</span> Flavours
           </h1>
           <p>🇬🇧 Serving the UK with Traditional Mexican Cuisine</p>
-          <div className="hero-buttons">
-            <button className="primary-btn">🚀 Order Now - Free Delivery</button>
-            <button className="secondary-btn">📍 Find Nearest Location</button>
-          </div>
+         <div className="hero-buttons">
+  {/* Navigate to /menu */}
+  <button
+    className="primary-btn"
+    onClick={() => navigate("/menu")}
+  >
+    🚀 Order Now - Free Delivery
+  </button>
+
+  {/* Open popup modal */}
+  <button
+    className="secondary-btn"
+    onClick={() => setIsPopupOpen(true)}
+  >
+    📍 Order from other site
+  </button>
+</div>
+{isPopupOpen && (
+  <div className="popup-overlay">
+    <div className="popup-content">
+      <h3 className="text-lg font-bold mb-3">Order via:</h3>
+      <div className="flex flex-col gap-2">
+        <a href="https://ubereats.com" target="_blank" rel="noopener noreferrer" className="px-4 py-2 bg-black  rounded">
+         <img style={{ width: '100px', height: '50px', objectFit:"contain" }} alt="Delivery Platform"
+                        src={delimg1}></img>
+        </a>
+        <a href="https://justeat.com" target="_blank" rel="noopener noreferrer" className="px-4 py-2 bg-orange-500  rounded">
+          <img style={{ width: '100px', height: '50px', objectFit:"contain" }} alt="Delivery Platform"
+                        src={delimg2}></img>
+        </a>
+        <a href="https://deliveroo.com" target="_blank" rel="noopener noreferrer" className="px-4 py-2 bg-cyan-500  rounded">
+          <img style={{ width: '100px', height: '50px', objectFit:"contain" }} alt="Delivery Platform"
+                        src={delimg3}></img>
+        </a>
+      </div>
+      <button
+        onClick={() => setIsPopupOpen(false)}
+        className="mt-4 px-4 py-2 bg-gray-300 rounded"
+      >
+        Close
+      </button>
+    </div>
+  </div>
+)}
+
         </div>
 
         {/* Carousel */}

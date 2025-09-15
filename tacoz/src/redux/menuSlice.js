@@ -5,7 +5,9 @@ export const fetchMenu = createAsyncThunk(
   async (queryParams = '') => {
     const base = process.env.REACT_APP_BACKEND_URL || 'http://localhost:5000';
     const res = await fetch(`${base}/api/menu${queryParams}`);
-    return res.json();
+     let menuItems=await res.json();
+     localStorage.setItem('menuItems', JSON.stringify(menuItems));
+     return menuItems;
   }
 );
 

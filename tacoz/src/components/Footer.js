@@ -36,17 +36,17 @@ const Footer = () => {
               >
                 <p className="d-flex align-items-center gap-2 contact-item text-white">
                   <i className="bi bi-telephone-inbound-fill fs-3"></i>
-                 +61-xxxxxxxxxx
+                 +44 7507 002201
                 </p>
               </a>
               <a
-                href="mailto:info@hellotacozz.com?subject=Inquiry&body=Hello, I have a question about Hello Tacozz..."
+                href="mailto:info@hellotacos.com?subject=Inquiry&body=Hello, I have a question about Hello Tacos..."
                 style={{ textDecoration: 'none' }}
                 className="text-white"
               >
                 <p className="d-flex align-items-center gap-2 contact-item text-white">
                   <i className="bi bi-envelope-at-fill fs-3"></i>
-                  info@hellotacoz.com
+                  info@hellotacos.com
                 </p>
               </a>
             </div>
@@ -92,17 +92,17 @@ const Footer = () => {
                 style={{ fontWeight: 'bold', fontSize: '32px' }}
               >
                 <div style={{ color: '#f8cb46' }}>Hello</div>{' '}
-                <div style={{ color: '#54b226' }}>Tacoz</div>
+                <div style={{ color: '#54b226' }}>Tacos</div>
               </div>
             </div>
 
             {/* Copyright */}
             <div className="col-12 footer-copyright">
               <div className="text-center mt-2 fw-bold">
-                Copyright © {new Date().getFullYear()} Hello Tacoz
+                Copyright © {new Date().getFullYear()} Hello Tacos
               </div>
               <div className="text-center mt-2 fw-bold">
-                Created with 🌮 by Hello Tacozz Team
+                Created with 🌮 by Hello Tacos Team
               </div>
             </div>
           </div>
@@ -122,7 +122,7 @@ const Footer = () => {
           </Modal.Title>
         </Modal.Header>
         <Modal.Body className="modalbody">
-          Welcome to <b>Hello Tacozz</b>! We deliver authentic Mexican flavors —
+          Welcome to <b>Hello Tacos</b>! We deliver authentic Mexican flavors —
           tacos, burritos, nachos, and more — fresh and fast to your doorstep.
         </Modal.Body>
       </Modal>
@@ -138,7 +138,7 @@ const Footer = () => {
           </Modal.Title>
         </Modal.Header>
         <Modal.Body className="modalbody">
-          At Hello Tacozz, we respect your privacy. Your data will only be used
+          At Hello Tacos, we respect your privacy. Your data will only be used
           to improve your food ordering experience.
         </Modal.Body>
       </Modal>
@@ -154,7 +154,7 @@ const Footer = () => {
           </Modal.Title>
         </Modal.Header>
         <Modal.Body className="modalbody">
-          By using Hello Tacozz services, you agree to follow our delivery,
+          By using Hello Tacos services, you agree to follow our delivery,
           payment, and support terms.
         </Modal.Body>
       </Modal>
@@ -171,7 +171,7 @@ const Footer = () => {
         </Modal.Header>
         <Modal.Body className="modalbody">
           We keep your transactions secure. Never share sensitive details like
-          OTPs, UPI PINs, or card info with anyone claiming to be Hello Tacozz.
+          OTPs, UPI PINs, or card info with anyone claiming to be Hello Tacos.
         </Modal.Body>
       </Modal>
 
@@ -186,7 +186,7 @@ const Footer = () => {
           </Modal.Title>
         </Modal.Header>
         <Modal.Body className="modalbody">
-          Need help? Email us at <b>support@hellotacozz.com</b> and we’ll be glad
+          Need help? Email us at <b>support@hellotacos.com</b> and we’ll be glad
           to assist you.
         </Modal.Body>
       </Modal>

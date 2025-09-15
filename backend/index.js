@@ -100,3 +100,6 @@ app.use("/api/menu", menuRoutes);
 // User related routes
 const userRoutes = require("./routes/userRoutes");
 app.use("/api", userRoutes);
+
+app.use("/api/checkout", require("./routes/checkoutRoutes"));
+

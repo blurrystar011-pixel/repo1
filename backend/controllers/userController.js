@@ -32,11 +32,11 @@ exports.sendOtp = async (req, res) => {
 const mailOptions = {
   from: process.env.EMAIL_USER,
   to: email,
-  subject: "Your One-Time Password (OTP) - ¡Bienvenido to Hello Tacoz!",
+  subject: "Your One-Time Password (OTP) - ¡Bienvenido to Hello Tacos!",
   html: `
     <div style="font-family: Arial, sans-serif; background-color: #fff7f0; padding: 20px; border-radius: 8px; max-width: 500px; margin: auto; border: 1px solid #f0e0d0;">
       <div style="text-align: center;">
-        <h1 style="color: #d32f2f; margin-bottom: 10px;">🌮 Hello Tacoz</h1>
+        <h1 style="color: #d32f2f; margin-bottom: 10px;">🌮 Hello Tacos</h1>
         <p style="color: #444; font-size: 16px; margin: 0;">Authentic Mexican Flavours in the UK</p>
       </div>
       <hr style="border: none; border-top: 1px solid #e0cfc0; margin: 20px 0;" />
@@ -54,7 +54,7 @@ const mailOptions = {
       </p>
       <hr style="border: none; border-top: 1px solid #e0cfc0; margin: 20px 0;" />
       <p style="font-size: 13px; color: #999; text-align: center;">
-        © ${new Date().getFullYear()} [Your Brand Name]. Bringing Mexican street food to your doorstep 🌶️
+        © ${new Date().getFullYear()} Hello Tacos. Bringing Mexican street food to your doorstep 🌶️
       </p>
     </div>
   `,

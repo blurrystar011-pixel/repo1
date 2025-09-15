@@ -1,0 +1,38 @@
+.policy-page {
+  max-width: 900px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+  font-family: "Inter", sans-serif;
+  line-height: 1.7;
+  color: #333;
+}
+
+.policy-page h1 {
+  font-size: 2rem;
+  color: #ff6600;
+  margin-bottom: 1rem;
+}
+
+.policy-page h2 {
+  margin-top: 1.5rem;
+  font-size: 1.2rem;
+  color: #222;
+}
+
+.policy-page ul {
+  padding-left: 1.5rem;
+  list-style: disc;
+}
+
+.policy-page a {
+  color: #ff6600;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.policy-page a:hover {
+  text-decoration: underline;
+}

@@ -14,9 +14,13 @@ import "./Header.css";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import avtar from "../assets/default-avatar.png";
-
+import { useNavigate } from "react-router-dom";
+import SearchOverlay from "./SearchOverlay";
 const Navbar1 = () => {
+    const navigate = useNavigate();
   const [showModal, setShowModal] = useState(false);
+    const [searchOpen, setSearchOpen] = useState(false);
+
   const user = useSelector((state) => state.user);
   const cart = useSelector((state) => state.cart);
   const dispatch = useDispatch();
@@ -72,7 +76,7 @@ const Navbar1 = () => {
           <Container fluid className="d-flex align-items-center justify-content-between">
             {/* Left: Brand */}
             <Navbar.Brand as={NavLink} to="/" className="logo-text text-white">
-              Tacoz
+             Hello Tacos
             </Navbar.Brand>
 
            
@@ -114,6 +118,12 @@ const Navbar1 = () => {
                   <ShoppingCartOutlined style={{ fontSize: "32px", color: "#000" }} />
                 </Badge>
               </NavLink>
+                   <div className="nav-icons">
+        <button onClick={() => navigate("/menu")} className="nav-btn">📖</button>
+        <button onClick={() => setSearchOpen(true)} className="nav-btn">🔍</button>
+      </div>
+
+      <SearchOverlay isOpen={searchOpen} onClose={() => setSearchOpen(false)} />
 
               <Navbar.Toggle
                 aria-controls={`offcanvasNavbar-expand-${expand}`}
@@ -133,7 +143,7 @@ const Navbar1 = () => {
                   className="logo-text"
                 >
                   <span className="text-dark">Hello</span>{" "}
-                  <span className="highlight">Tacoz</span>
+                  <span className="highlight">Tacos</span>
                 </Offcanvas.Title>
               </Offcanvas.Header>
               <Offcanvas.Body>

@@ -1,0 +1,85 @@
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+}
+
+.modal-box {
+  background: #fff;
+  padding: 25px;
+  width: 90%;
+  max-width: 400px;
+  border-radius: 16px;
+  text-align: center;
+  position: relative;
+  animation: slideDown 0.4s ease-out;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.close-btn {
+  position: absolute;
+  top: 12px;
+  right: 15px;
+  background: none;
+  border: none;
+  font-size: 1.4rem;
+  cursor: pointer;
+  color: #333;
+}
+
+.modal-box h2 {
+  font-size: 1.6rem;
+  color: #e63946; /* taco red */
+  margin-bottom: 10px;
+}
+
+.modal-box p {
+  font-size: 1.1rem;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.offer-btn {
+  display: inline-block;
+  padding: 12px 20px;
+  background: #008000; /* Mexican green */
+  color: white;
+  font-weight: bold;
+  border-radius: 10px;
+  text-decoration: none;
+  transition: 0.3s ease;
+}
+
+.offer-btn:hover {
+  background: #006400;
+  transform: scale(1.05);
+}
+
+@keyframes slideDown {
+  from {
+    transform: translateY(-30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@media (max-width: 480px) {
+  .modal-box {
+    padding: 20px;
+  }
+
+  .modal-box h2 {
+    font-size: 1.3rem;
+  }
+
+  .modal-box p {
+    font-size: 1rem;
+  }
+}

@@ -5,6 +5,7 @@ import MexicanFoodCards from '../components/MexicanFoodCards';
 import ShuffleHero from '../components/ShuffleHero';
 import MexicanFoodHero from "../components/Header";
 import HelloTacosInfo from '../components/HelloTacosInfo';
+import FloatingActionButtons from '../components/FloatingActionButtons';
  const Home = () => {
   return <>
        <MexicanFoodHero />
@@ -13,6 +14,7 @@ import HelloTacosInfo from '../components/HelloTacosInfo';
   <MexicanFoodCards></MexicanFoodCards>
   <ShuffleHero></ShuffleHero>
   <HelloTacosInfo></HelloTacosInfo>
+  <FloatingActionButtons></FloatingActionButtons>
   </>
 }
 export default Home

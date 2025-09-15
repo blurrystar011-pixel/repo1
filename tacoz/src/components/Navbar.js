@@ -6,7 +6,7 @@ import Offcanvas from "react-bootstrap/Offcanvas";
 import { Badge } from "antd";
 import { ShoppingCartOutlined } from "@ant-design/icons";
 import { NavLink } from "react-router-dom";
-
+import { MdRestaurantMenu } from "react-icons/md";
 import { useSelector, useDispatch } from "react-redux";
 import { clearUser, setUser } from "../redux/userSlice";
 import LoginModal from "./LoginModel";
@@ -16,6 +16,7 @@ import "react-toastify/dist/ReactToastify.css";
 import avtar from "../assets/default-avatar.png";
 import { useNavigate } from "react-router-dom";
 import SearchOverlay from "./SearchOverlay";
+import { IoMdSearch } from "react-icons/io";
 const Navbar1 = () => {
     const navigate = useNavigate();
   const [showModal, setShowModal] = useState(false);
@@ -118,9 +119,9 @@ const Navbar1 = () => {
                   <ShoppingCartOutlined style={{ fontSize: "32px", color: "#000" }} />
                 </Badge>
               </NavLink>
-                   <div className="nav-icons">
-        <button onClick={() => navigate("/menu")} className="nav-btn">📖</button>
-        <button onClick={() => setSearchOpen(true)} className="nav-btn">🔍</button>
+                   <div className="nav-icons d-flex">
+<div>        <button onClick={() => navigate("/menu")} className="nav-btn floating-menu-btn"  style={{ display: "flex", justifyContent: "center", alignItems: "center" }}><MdRestaurantMenu /></button></div>
+     <div>   <button onClick={() => setSearchOpen(true)} className="nav-btn floating-menu-btn"  style={{ display: "flex", justifyContent: "center", alignItems: "center" }}><IoMdSearch /></button></div>
       </div>
 
       <SearchOverlay isOpen={searchOpen} onClose={() => setSearchOpen(false)} />

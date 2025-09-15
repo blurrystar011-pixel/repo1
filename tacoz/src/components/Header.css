@@ -548,3 +548,8 @@ nav {
 .popup-content button:hover {
   background: #ddd;
 }
+.floating-menu-btn{
+  background: none;
+  border: none;
+  font-size: 30px;
+}

@@ -160,7 +160,7 @@ const LoginModal = () => {
   return (
     <div className="modal-overlay">
       <div className="modal-box">
-        <h2>🌮 Welcome to Taco Fiesta!</h2>
+        <h2>🌮 Welcome to Hello Tacos!</h2>
         <p>Login to enjoy our delicious offers</p>
 
         {/* Google Login */}

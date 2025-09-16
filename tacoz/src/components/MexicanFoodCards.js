@@ -21,7 +21,7 @@ const MexicanFoodCards = () => {
 const handleAddToCart = (item) => {
   const itemWithNumericPrice = {
     ...item,
-    price: parseFloat(item.price.replace("€", "")) // ✅ convert to number
+    price: parseFloat(item.price.replace("£", "")) // ✅ convert to number
   };
   dispatch(addToCart(itemWithNumericPrice));
   toast.success(`${item.name} added to cart 🛒`);
@@ -31,7 +31,7 @@ const handleAddToCart = (item) => {
 const handleBuyNow = (item) => {
   const itemWithNumericPrice = {
     ...item,
-    price: parseFloat(item.price.replace("€", "")) // ✅ convert to number
+    price: parseFloat(item.price.replace("£", "")) // ✅ convert to number
   };
   dispatch(addToCart(itemWithNumericPrice));
   toast.info(`Redirecting to cart... ⚡`);
@@ -43,7 +43,7 @@ const handleBuyNow = (item) => {
     {
       id: 1,
       name: "Authentic Chicken Tacos",
-      price: "€12.99",
+      price: "£12.99",
       rating: 4.8,
       description: "Tender chicken with fresh cilantro, onions, & lime on corn tortillas",
       image: "https://www.mexicanplease.com/wp-content/uploads/2018/01/best-chicken-tacos-closeup.jpg",
@@ -57,7 +57,7 @@ const handleBuyNow = (item) => {
     {
       id: 2,
       name: "Beef Burrito Bowl",
-      price: "€14.50",
+      price: "£14.50",
       rating: 4.6,
       description: "Seasoned beef with black beans, rice, cheese, and fresh guacamole",
       image: "https://images.unsplash.com/photo-1544025162-d76694265947?w=400&h=300&fit=crop",
@@ -70,7 +70,7 @@ const handleBuyNow = (item) => {
     {
       id: 3,
       name: "Spicy Jalapeño Quesadilla",
-      price: "€10.99",
+      price: "£10.99",
       rating: 4.7,
       description: "Crispy tortilla filled with melted cheese, jalapeños, and chicken",
       image: "https://images.unsplash.com/photo-1618040996337-56904b7850b9?w=400&h=300&fit=crop",
@@ -83,7 +83,7 @@ const handleBuyNow = (item) => {
     {
       id: 4,
       name: "Veggie Enchiladas",
-      price: "€13.25",
+      price: "£13.25",
       rating: 4.5,
       description: "Roasted vegetables wrapped in corn tortillas with sauce & cheese",
       image: "https://www.spendwithpennies.com/wp-content/uploads/2021/03/Veggie-Enchiladas-SpendWithPennies-9.jpg",
@@ -96,7 +96,7 @@ const handleBuyNow = (item) => {
     {
       id: 5,
       name: "Carnitas Tacos",
-      price: "€13.99",
+      price: "£13.99",
       rating: 4.9,
       description: "Slow-cooked pork shoulder with pickled onions and chipotle crema",
       image: "https://images.unsplash.com/photo-1613514785940-daed07799d9b?w=400&h=300&fit=crop",
@@ -108,7 +108,7 @@ const handleBuyNow = (item) => {
     {
       id: 6,
       name: "Shrimp Burrito Bowl",
-      price: "€16.75",
+      price: "£16.75",
       rating: 4.8,
       description: "Grilled shrimp with cilantro-lime rice, black beans, and mango salsa",
       image: "https://i.pinimg.com/736x/2f/ec/2c/2fec2c372d0b2907835ff0fdb8545343.jpg",
@@ -157,21 +157,21 @@ const handleBuyNow = (item) => {
       id: 'call',
       name: 'Call to Order',
       icon: <Phone className="w-6 h-6" />,
-      url: 'tel:+1234567890',
+      url: 'tel:+447507002201',
       className: 'order-option-button-call'
     },
     {
       id: 'whatsapp',
       name: 'WhatsApp Order',
       icon: <MessageCircle className="w-6 h-6" />,
-      url: 'https://wa.me/1234567890',
+      url: 'https://wa.me/+447507002201',
       className: 'order-option-button-whatsapp'
     },
     {
       id: 'ubereats',
       name: 'Uber Eats',
       icon: <div className="w-6 h-6 bg-black rounded flex items-center justify-center text-white text-xs font-bold">UE</div>,
-      url: 'https://ubereats.com/store/mexican-restaurant',
+      url: 'https://www.ubereats.com/gb/store/hello-tacos/P5WjPrDqWdyye8UKSxKsrQ?diningMode=DELIVERY&pl=JTdCJTIyYWRkcmVzcyUyMiUzQSUyMjEwMyUyMFNpbW1vbnMlMjBEcml2ZSUyMiUyQyUyMnJlZmVyZW5jZSUyMiUzQSUyMjI3NWQzN2YwLWI2YWEtNDExOS0zM2Q4LTlmYTlkNzU0OTdhMyUyMiUyQyUyMnJlZmVyZW5jZVR5cGUlMjIlM0ElMjJ1YmVyX3BsYWNlcyUyMiUyQyUyMmxhdGl0dWRlJTIyJTNBNTIuNDUyOTQ4MiUyQyUyMmxvbmdpdHVkZSUyMiUzQS0xLjk5NjAwNjklN0Q%3D',
       className: 'order-option-button-ubereats'
     },
     {
@@ -185,7 +185,7 @@ const handleBuyNow = (item) => {
       id: 'deliveroo',
       name: 'Deliveroo',
       icon: <div className="w-6 h-6 bg-cyan-500 rounded flex items-center justify-center text-white text-xs font-bold">DR</div>,
-      url: 'https://deliveroo.com/menu/mexican-restaurant',
+      url: 'https://deliveroo.co.uk/menu/birmingham/wolverhampton-city-centre/hello-tacos-56-mander-square?srsltid=AfmBOorvLsOfud3LL8ecLYDCbL4ZmiQDkhAs-cVAERemCZA8XcuTdyuf',
       className: 'order-option-button-deliveroo'
     }
   ];

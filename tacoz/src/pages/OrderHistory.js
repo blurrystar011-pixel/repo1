@@ -24,12 +24,12 @@ const OrderHistory = () => {
             <li key={o._id} className="order-item">
               <h4>Order #{o._id}</h4>
               <p>Status: <strong>{o.status}</strong></p>
-              <p>Total: €{o.total.toFixed(2)}</p>
+              <p>Total: £{o.total.toFixed(2)}</p>
               {o.note && <p>Note: {o.note}</p>}
               <ul className="order-products">
                 {o.items.map((item, idx) => (
                   <li key={idx}>
-                    {item.qty}× {item.name} (€{item.price})
+                    {item.qty}× {item.name} (£{item.price})
                   </li>
                 ))}
               </ul>

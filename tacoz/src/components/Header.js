@@ -167,7 +167,7 @@ const navigate = useNavigate();
     <div className="popup-content">
       <h3 className="text-lg font-bold mb-3">Order via:</h3>
       <div className="flex flex-col gap-2">
-        <a href="https://ubereats.com" target="_blank" rel="noopener noreferrer" className="px-4 py-2 bg-black  rounded">
+        <a href="https://www.ubereats.com/gb/store/hello-tacos/P5WjPrDqWdyye8UKSxKsrQ?diningMode=DELIVERY&pl=JTdCJTIyYWRkcmVzcyUyMiUzQSUyMjEwMyUyMFNpbW1vbnMlMjBEcml2ZSUyMiUyQyUyMnJlZmVyZW5jZSUyMiUzQSUyMjI3NWQzN2YwLWI2YWEtNDExOS0zM2Q4LTlmYTlkNzU0OTdhMyUyMiUyQyUyMnJlZmVyZW5jZVR5cGUlMjIlM0ElMjJ1YmVyX3BsYWNlcyUyMiUyQyUyMmxhdGl0dWRlJTIyJTNBNTIuNDUyOTQ4MiUyQyUyMmxvbmdpdHVkZSUyMiUzQS0xLjk5NjAwNjklN0Q%3D" target="_blank" rel="noopener noreferrer" className="px-4 py-2 bg-black  rounded">
          <img style={{ width: '100px', height: '50px', objectFit:"contain" }} alt="Delivery Platform"
                         src={delimg1}></img>
         </a>
@@ -175,7 +175,7 @@ const navigate = useNavigate();
           <img style={{ width: '100px', height: '50px', objectFit:"contain" }} alt="Delivery Platform"
                         src={delimg2}></img>
         </a>
-        <a href="https://deliveroo.com" target="_blank" rel="noopener noreferrer" className="px-4 py-2 bg-cyan-500  rounded">
+        <a href="https://deliveroo.co.uk/menu/birmingham/wolverhampton-city-centre/hello-tacos-56-mander-square?srsltid=AfmBOorvLsOfud3LL8ecLYDCbL4ZmiQDkhAs-cVAERemCZA8XcuTdyuf" target="_blank" rel="noopener noreferrer" className="px-4 py-2 bg-cyan-500  rounded">
           <img style={{ width: '100px', height: '50px', objectFit:"contain" }} alt="Delivery Platform"
                         src={delimg3}></img>
         </a>

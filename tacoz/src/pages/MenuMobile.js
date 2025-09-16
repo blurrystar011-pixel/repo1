@@ -143,7 +143,7 @@ const MenuMobile = ({ items, status }) => {
                   <h6>{item.name}</h6>
                   <p className="text-muted small">{item.description}</p>
                   <div className="mobile-footer">
-                    <span style={{'width':'150px'}}>€{item.price.toFixed(2)}</span>
+                    <span style={{'width':'150px'}}>£{item.price.toFixed(2)}</span>
                     <Button size="sm" onClick={() => handleOrderClick(item)}>
                       +
                     </Button>

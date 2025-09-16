@@ -80,7 +80,7 @@ export default function SearchOverlay({ isOpen, onClose }) {
                 />
                 <div className="search-info">
                   <h4>{item.name}</h4>
-                  <p className="search-price">€{price}</p>
+                  <p className="search-price">£{price}</p>
                 </div>
                 <button
                   className="add-btn"

@@ -69,7 +69,7 @@ const CheckoutPage = () => {
   // ✅ Checkout (Stripe)
   const handleCheckout = async () => {
     if (total < 5) {
-      alert("Minimum order is €5.");
+      alert("Minimum order is £5.");
       return;
     }
     if (!otp) {
@@ -137,10 +137,10 @@ const CheckoutPage = () => {
       {step === "payment" && (
         <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
           <h3>3️⃣ Payment & Summary</h3>
-          <p>Total: <strong>€{total.toFixed(2)}</strong></p>
+          <p>Total: <strong>£{total.toFixed(2)}</strong></p>
           <ul>
             {items.map((i) => (
-              <li key={i.id || i._id}>{i.qty}× {i.name} (€{i.price})</li>
+              <li key={i.id || i._id}>{i.qty}× {i.name} (£{i.price})</li>
             ))}
           </ul>
           <button disabled={total < 5 || loading} onClick={handleCheckout} style={{ padding: 10, backgroundColor: "#388e3c", color: "#fff", border: "none", borderRadius: 6, cursor: "pointer" }}>

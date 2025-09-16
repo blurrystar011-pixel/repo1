@@ -48,11 +48,11 @@ const ProductModal = ({ item, onClose }) => {
               <span className="rating">
                 <Star size={16} className="star" /> {item.rating || 0}
               </span>
-              <span>💸 {item.price} €</span>
+              <span>💸 {item.price} £</span>
               <span>
                 🚚{" "}
                 {item.deliveryPrice
-                  ? `${item.deliveryPrice} €`
+                  ? `${item.deliveryPrice} £`
                   : "Free Delivery"}
               </span>
             </div>

@@ -58,7 +58,7 @@ const MenuDesktop = ({ items, status }) => {
                   {item.description}
                 </Card.Text>
                 <div className="d-flex justify-content-between align-items-center mt-3">
-                  <strong>€{item.price.toFixed(2)}</strong>
+                  <strong>£{item.price.toFixed(2)}</strong>
                   <Button className="orderbtn" onClick={() => handleOrderClick(item)}>
                     Order Now
                   </Button>

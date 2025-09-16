@@ -6,8 +6,8 @@ export default function OfferModal() {
 
   // Offers from platforms
   const platformOffers = [
-    { title: "🌮 20% OFF on Deliveroo!", link: "https://deliveroo.co.uk" },
-    { title: "🔥 Free Delivery on UberEats!", link: "https://ubereats.com" },
+    { title: "🌮 20% OFF on Deliveroo!", link: "https://deliveroo.co.uk/menu/birmingham/wolverhampton-city-centre/hello-tacos-56-mander-square?srsltid=AfmBOorvLsOfud3LL8ecLYDCbL4ZmiQDkhAs-cVAERemCZA8XcuTdyuf" },
+    { title: "🔥 Free Delivery on UberEats!", link: "https://www.ubereats.com/gb/store/hello-tacos/P5WjPrDqWdyye8UKSxKsrQ?diningMode=DELIVERY&pl=JTdCJTIyYWRkcmVzcyUyMiUzQSUyMjEwMyUyMFNpbW1vbnMlMjBEcml2ZSUyMiUyQyUyMnJlZmVyZW5jZSUyMiUzQSUyMjI3NWQzN2YwLWI2YWEtNDExOS0zM2Q4LTlmYTlkNzU0OTdhMyUyMiUyQyUyMnJlZmVyZW5jZVR5cGUlMjIlM0ElMjJ1YmVyX3BsYWNlcyUyMiUyQyUyMmxhdGl0dWRlJTIyJTNBNTIuNDUyOTQ4MiUyQyUyMmxvbmdpdHVkZSUyMiUzQS0xLjk5NjAwNjklN0Q%3D" },
     { title: "🎉 Special Deals on JustEat!", link: "https://just-eat.co.uk" },
     { title: "💻 Order Direct & Save!", link: "/order" },
   ];

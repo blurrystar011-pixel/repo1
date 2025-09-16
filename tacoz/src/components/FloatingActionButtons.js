@@ -11,7 +11,7 @@ const FloatingActionButtons = () => {
     <div className="fab-container">
       {/* WhatsApp */}
       <a
-        href="https://wa.me/1234567890" // replace with your number
+        href="https://wa.me/+447507002201" // replace with your number
         target="_blank"
         rel="noopener noreferrer"
         className="fab-btn whatsapp"
@@ -22,7 +22,7 @@ const FloatingActionButtons = () => {
 
       {/* Call */}
       <a
-        href="tel:+1234567890" // replace with your number
+        href="tel:+447507002201" // replace with your number
         className="fab-btn call"
         title="Call Us"
       >

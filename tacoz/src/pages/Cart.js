@@ -30,7 +30,7 @@ const CartPage = () => {
 
   const handleProceedCheckout = () => {
     if (total < 5) {
-      alert("Minimum order is €5.");
+      alert("Minimum order is £5.");
       return;
     }
 
@@ -52,7 +52,7 @@ const CartPage = () => {
                 <img src={i.image || "/placeholder.jpg"} alt={i.name} className="item-img" />
                 <div className="item-details">
                   <h4 className="item-name">{i.name}</h4>
-                  <p className="item-price">€{i.price.toFixed(2)}</p>
+                  <p className="item-price">£{i.price.toFixed(2)}</p>
                   <div className="qty-box">
                     Qty:
                     <input
@@ -82,13 +82,13 @@ const CartPage = () => {
         <div className="summary-card">
           <h3>Order Summary</h3>
           <p className="summary-total">
-            Total: <strong>€{total.toFixed(2)}</strong>
+            Total: <strong>£{total.toFixed(2)}</strong>
           </p>
 
           {/* ✅ Min order warning */}
           {total < 5 && (
             <p className="min-order-warning">
-              ⚠️ Minimum order is €5. Please add more items.
+              ⚠️ Minimum order is £5. Please add more items.
             </p>
           )}
 
@@ -121,7 +121,7 @@ const CartPage = () => {
                 <div key={p.id} className="upsell-item">
                   <img src={p.image} alt={p.name} className="upsell-img" />
                   <p className="upsell-name">{p.name}</p>
-                  <p className="upsell-price">€{p.price.toFixed(2)}</p>
+                  <p className="upsell-price">£{p.price.toFixed(2)}</p>
                   <button
                     className="add-btn"
                     onClick={() => dispatch(addToCart({ ...p, qty: 1 }))}

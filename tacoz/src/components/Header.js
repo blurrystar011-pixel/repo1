@@ -19,6 +19,7 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import Offcanvas from 'react-bootstrap/Offcanvas';
+import Carousel from './Carousel';
 
 
 const MexicanFoodHero = () => {
@@ -193,7 +194,7 @@ const navigate = useNavigate();
         </div>
 
         {/* Carousel */}
-        <div className="carousel">
+        {/* <div className="carousel">
           <img
             src={carouselImages[currentSlide].url}
             alt={carouselImages[currentSlide].title}
@@ -219,7 +220,9 @@ const navigate = useNavigate();
           >
             <ChevronRight />
           </button>
-        </div>
+        </div> */}
+        <div className="carousel">
+        <Carousel></Carousel></div>
       </div>
  <div className="floating-elements">
   <div className="floating-element" style={{ top: '20%', left: '10%' }}>🌶️</div>

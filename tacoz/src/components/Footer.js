@@ -56,7 +56,7 @@ const navigate=useNavigate();
               <h3>Our Features</h3>
               <p className='text-white'>
                 🌮 Authentic Mexican taste <br />
-                🚀 Super-fast delivery across Wolverhampton <br />
+                🚀 Delivery across Wolverhampton <br />
                 📱 Easy ordering via mobile & web <br />
                 🥑 Fresh, healthy, & delicious!
               </p>

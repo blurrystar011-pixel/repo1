@@ -35,7 +35,8 @@ const CartPage = () => {
     }
 
     // ✅ Redirect to checkout page with order data
-    navigate("/checkout", { state: { items, total, note: orderNote } });
+    // navigate("/checkout", { state: { items, total, note: orderNote } });
+     navigate("/no-delivery");
   };
 
   return (

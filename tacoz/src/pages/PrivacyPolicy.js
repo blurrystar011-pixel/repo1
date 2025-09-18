@@ -7,8 +7,8 @@ export default function PrivacyPolicy() {
       <div className="privacy-header">
         <h1>Privacy Policy</h1>
         <p>
-          <strong>Effective Date:</strong> [Insert Date] <br />
-          <strong>Last Updated:</strong> [Insert Date]
+          <strong>Effective Date:</strong> [8/08/2025] <br />
+          <strong>Last Updated:</strong> [15/09/2025]
         </p>
       </div>
 
@@ -89,7 +89,7 @@ export default function PrivacyPolicy() {
           <h2>9. Contact Us</h2>
           <p>
             <strong>Hello Tacos</strong> <br />
-            Email: [info@hellotacos.com] <br />
+            Email: [hello4tacos@gmail.com] <br />
             Phone: [+44 7507 002201] <br />
             Address: [37 Mander Square
 Mander Centre

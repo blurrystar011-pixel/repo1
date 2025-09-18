@@ -15,6 +15,7 @@ import PrivacyPolicy from "./pages/PrivacyPolicy";
 import OfferModal from "./components/OfferModal";
 import CookieConsent from "./components/CookieConsent";
 import CookiePolicy from "./pages/CookiePolicy";
+import NoDeliveryPage from "./pages/NoDeliveryPage";
 function App() {
   const FACEBOOK_APP_ID = "1122436013029840"; // 👈 Your Facebook App ID
 
@@ -34,12 +35,14 @@ function App() {
            <Route path="/checkout" element={<CheckoutPage />} />
            <Route path='/privacy-policy' element={<PrivacyPolicy />} />
             <Route path="/cookie-policy" element={<CookiePolicy />} />
+             <Route path="/no-delivery" element={<NoDeliveryPage />} />
         </Routes>
 
         {/* Global Login Popup (shown automatically on visit) */}
         <Login />
+         <Footer></Footer>
       </Router>
-      <Footer></Footer>
+     
        <ToastContainer position="top-right" autoClose={3000} />
     </FacebookProvider>
   );

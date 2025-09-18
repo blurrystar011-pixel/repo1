@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
 import './Footer.css';
 import Modal from 'react-bootstrap/Modal';
-
+import {useNavigate} from 'react-router-dom';
 const Footer = () => {
   const [lgShow, setLgShow] = useState(false);
   const [lgShow1, setLgShow1] = useState(false);
   const [lgShow2, setLgShow2] = useState(false);
   const [lgShow3, setLgShow3] = useState(false);
   const [lgShow4, setLgShow4] = useState(false);
-
+const navigate=useNavigate();
   return (
     <>
       <div className="container-fluid text-white footer" id="contactus">
@@ -46,7 +46,7 @@ const Footer = () => {
               >
                 <p className="d-flex align-items-center gap-2 contact-item text-white">
                   <i className="bi bi-envelope-at-fill fs-3"></i>
-                  info@hellotacos.com
+                  hello4tacos@gmail.com
                 </p>
               </a>
             </div>
@@ -56,7 +56,7 @@ const Footer = () => {
               <h3>Our Features</h3>
               <p className='text-white'>
                 🌮 Authentic Mexican taste <br />
-                🚀 Super-fast delivery across India <br />
+                🚀 Super-fast delivery across Wolverhampton <br />
                 📱 Easy ordering via mobile & web <br />
                 🥑 Fresh, healthy, & delicious!
               </p>
@@ -139,7 +139,7 @@ const Footer = () => {
         </Modal.Header>
         <Modal.Body className="modalbody">
           At Hello Tacos, we respect your privacy. Your data will only be used
-          to improve your food ordering experience.
+          to improve your food ordering experience.For more info vist<span onClick={()=>{navigate('/privacy-policy'); console.log('ieeee')}}> privacy-policy</span>
         </Modal.Body>
       </Modal>
 
